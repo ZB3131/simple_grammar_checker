@@ -29,7 +29,7 @@ def check_their_theyre(sentence):
                     # Extra rule for -ing verbs
                     if next_word.endswith("ing") and i+2 < len(tags):
                         after_next_tag = tags[i+2][1]
-                        # If nothing nouny follows, flag it
+                        # If a noun doesn't follows, flag it
                         if after_next_tag not in {"NN", "NNS"}:
                             corrections.append(
                                 f"'{word} {next_word}' looks odd. Did you mean 'They’re {next_word} ...'?"
@@ -54,5 +54,6 @@ print(check_their_theyre("They're son is well-behaved"))
 print(check_their_theyre("Their closing the store"))
 print(check_their_theyre("They're geniuses"))
 print(check_their_theyre("Their talent is incredible"))
+
 
 
