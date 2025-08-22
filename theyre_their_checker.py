@@ -50,8 +50,9 @@ def check_their_theyre(sentence):
     return corrections
 
 # Tests sentences
-print(check_their_theyre("They're teachers are excellent"))
+print(check_their_theyre("They're son is well-behaved"))
 print(check_their_theyre("Their closing the store"))
 print(check_their_theyre("They're geniuses"))
 print(check_their_theyre("Their talent is incredible"))
+
 
