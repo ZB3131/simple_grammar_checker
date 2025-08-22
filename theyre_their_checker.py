@@ -1,10 +1,6 @@
 import nltk
 from nltk import word_tokenize, pos_tag
 
-
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-
 def check_their_theyre(sentence):
     # merge "they're" into one token
     sentence = sentence.replace("They're", "Theyre").replace("they're", "theyre")
@@ -29,7 +25,7 @@ def check_their_theyre(sentence):
                     # Extra rule for -ing verbs
                     if next_word.endswith("ing") and i+2 < len(tags):
                         after_next_tag = tags[i+2][1]
-                        # If a noun doesn't follows, flag it
+                        # If a noun doesn't follow, flag it
                         if after_next_tag not in {"NN", "NNS"}:
                             corrections.append(
                                 f"'{word} {next_word}' looks odd. Did you mean 'They’re {next_word} ...'?"
@@ -49,11 +45,8 @@ def check_their_theyre(sentence):
         return ["No issues found."]
     return corrections
 
-# Tests sentences
+# Test sentences
 print(check_their_theyre("They're son is well-behaved"))
 print(check_their_theyre("Their closing the store"))
 print(check_their_theyre("They're geniuses"))
 print(check_their_theyre("Their talent is incredible"))
-
-
-
